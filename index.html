@@ -48,6 +48,11 @@
         }
         .file-links a:hover { border-color: #e94560; color: #e94560; background: #fff5f6; }
 
+        /* 보고서 전용 카드 스타일 */
+        .report-card { background: #fff5f6; border: 1px dashed #e94560; padding: 25px; border-radius: 10px; text-align: center; margin-top: 15px; }
+        .btn-report { display: inline-block; background: #e94560; color: #fff; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 5px; margin-top: 15px; box-shadow: 0 4px 6px rgba(233,69,96,0.3); transition: 0.3s; }
+        .btn-report:hover { background: #1a1a2e; box-shadow: 0 4px 6px rgba(26,26,46,0.3); }
+
         /* SNS 푸터 */
         footer { background: #1a1a2e; color: #fff; padding: 40px 20px; text-align: center; }
         .sns-links a { color: #fff; margin: 0 15px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px dashed #e94560; }
@@ -63,7 +68,7 @@
             <a href="#gallery">갤러리</a>
             <a href="#tech-stack">웹 기술 스택</a>
             <a href="#security">서버 보안</a>
-            <a href="#sns">SNS</a>
+            <a href="#report">네트워크 보고서</a> <a href="#sns">SNS</a>
         </nav>
     </header>
 
@@ -132,6 +137,18 @@
         </div>
     </section>
 
+    <section id="report">
+        <h2>컴퓨터 및 네트워크 기술 이해 보고서</h2>
+        <div class="report-card">
+            <p style="font-size: 1.1rem; color: #1a1a2e;"><strong>과제 제출 정보</strong></p>
+            <p style="margin-top: 5px; color: #555;">성명: 권명호 | 학번: 20260115</p>
+            <p style="margin-top: 10px; font-size: 0.95rem;">바이러스 종류 및 감염 방법, 5G 이동 통신의 특징, 근거리 무선 통신 기술, 그리고 IoT 데이터 라이프사이클에 관한 상세 연구 보고서입니다.</p>
+            <a href="https://docs.google.com/document/d/1ExVSZUAmMv-dX4LEoCv8M8UkX6yKsU0bIEQ5QwOgvT8/edit?usp=sharing" target="_blank" class="btn-report">
+                구글 문서로 보고서 확인하기 ↗
+            </a>
+        </div>
+    </section>
+
     <footer id="sns">
         <h2>Contact & SNS</h2>
         <div class="sns-links">
@@ -145,10 +162,6 @@
         function toggleStack(id) {
             const content = document.getElementById(id);
             const isVisible = content.style.display === "block";
-            
-            // 모든 목록을 닫고 클릭한 것만 열고 싶다면 아래 한 줄 주석을 해제하세요.
-            // document.querySelectorAll('.stack-content').forEach(el => el.style.display = 'none');
-            
             content.style.display = isVisible ? "none" : "block";
         }
     </script>
