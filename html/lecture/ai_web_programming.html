@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 웹 프로그래밍 - 과목 상세</title>
+    <style>
+        /* 기본 스타일 초기화 (메인 페이지 스타일 유지) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        
+        /* 헤더 스타일 */
+        header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav { display: flex; justify-content: center; gap: 20px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #e94560; }
+
+        /* 섹션 공통 스타일 */
+        section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #eee; }
+        h2 { margin-bottom: 20px; color: #1a1a2e; border-left: 5px solid #e94560; padding-left: 10px; }
+
+        /* 웹 기술 스택 리스트 스타일 */
+        .tech-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .tech-item a { 
+            display: block; padding: 20px; background: #f4f4f4; text-align: center; 
+            text-decoration: none; color: #1a1a2e; border-radius: 8px; font-weight: bold; font-size: 1.1rem; border: 1px solid #ddd; transition: 0.3s;
+        }
+        .tech-item a:hover { border-color: #e94560; color: #fff; background: #e94560; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(233,69,96,0.3); }
+
+        /* 하단 뒤로가기 버튼 스타일 */
+        .back-box { text-align: center; margin-top: 40px; }
+        .btn-back { display: inline-block; background: #1a1a2e; color: #fff; text-decoration: none; padding: 12px 25px; font-weight: bold; border-radius: 5px; transition: 0.3s; }
+        .btn-back:hover { background: #e94560; }
+
+        /* 푸터 */
+        footer { background: #1a1a2e; color: #fff; padding: 30px 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="../index.html">홈으로 이동</a>
+            <a href="#intro">과목 소개</a>
+            <a href="#tech-stack">웹 기술 스택</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>AI 웹 프로그래밍</h2>
+        <p>박경배 교수님 수업의 <strong>AI 웹 프로그래밍</strong> 과목 상세 페이지입니다. 본 과정에서는 지능형 웹 서비스를 구축하기 위한 현대적인 프론트엔드 핵심 기술을 학습합니다.</p>
+    </section>
+
+    <section id="tech-stack">
+        <h2>02. 웹 기술 스택</h2>
+        <ul class="tech-list">
+            <li class="tech-item">
+                <a href="../htmlTag.html">HTML5</a>
+            </li>
+            <li class="tech-item">
+                <a href="../../css/CssList.html">CSS3</a>
+            </li>
+            <li class="tech-item">
+                <a href="../js/JsList.html">JavaScript</a>
+            </li>
+        </ul>
+        
+        <div class="back-box">
+            <a href="../../index.html" class="btn-back">← 메인 홈페이지로 돌아가기</a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Baseball Database Project - AI Web Programming. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

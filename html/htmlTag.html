@@ -4,33 +4,148 @@
 <head>
     <meta charset="UTF-8">
     <title>AI와 함께하는 웹호스팅</title>
+    <style>
+        /* 글로벌 스타일 초기화 및 배경 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 메인 컨테이너 */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 메인 타이틀 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* 타이틀 하단 장식 선 */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #8a2387, #f27121);
+            border-radius: 2px;
+        }
+
+        /* 리스트 스타일 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 리스트 아이템 (카드) */
+        li {
+            margin-bottom: 14px;
+            perspective: 1000px;
+        }
+
+        /* 링크 스타일 (카드 내부 구성) */
+        li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* 설명 텍스트를 위한 가상 요소 처리 또는 폰트 스타일 */
+        li a::after {
+            content: '바로가기 →';
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* 마우스 호버(Hover) 효과 */
+        li:hover a {
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        li:hover a::after {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
+        /* 마지막 아이템 마진 제거 */
+        li:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>AI와 함께하는 웹호스팅</h1>
-    <ul>
-        <li><a href="예제3-1htmlFrame.html">예제3-1 htmlFrame</a>– HTML 구조</li>
-        <li><a href="예제3-2meta.html">예제3-2 meta</a>-메타태그</li>
-        <li><a href="예제3-3phragraph.html">예제3-3 phragraph</a>-문단태그</li>
-        <li><a href="예제3-4character.html">예제3-4 character</a>–다양한 텍스트 강조 </li>
-        <li><a href="예제3-5heading.html">예제3-5 heading</a>– h1~h6 헤딩 태그 사용 예시</li>
-        <li><a href="예제3-6stext.html">예제3-6 stext</a>– 특수문자 예제</li>
-        <li><a href="예제3-7table.html">예제3-7 table</a>– 테이블 셀 병합(colspan, rowspan)</li>
-        <li><a href="예제3-8tableSpan.html">예제3-8 tableSpan</a> – 병합 및 셀 크기 조정 포함 테이블</li>
-        <li><a href="예제3-9tableSize.html">예제3-9 tableSize</a> – 테이블 크기 설정 예제</li>
-        <li><a href="예제3-10image.html">예제3-10 image</a> – 이미지 삽입 예시</li>
-        <li><a href="예제3-11imageSize.html">예제3-11 imageSize</a> – 이미지 크기 예시</li>
-        <li><a href="예제3-12hyperlink.html">예제3-12 hyperlink</a> – 하이퍼링크 예시</li>
-        <li><a href="예제3-13hyperImg.html">예제3-13 hyperImg</a> – 하이퍼링크 이미지 입력 폼</li>
-        <li><a href="예제4-1input.html">예제4-1 input</a> – 텍스트 및 패스워드 입력 필드 예시</li>
-        <li><a href="예제4-2input2.html">예제4-2 input2</a> – 파일, 이미지, 검색 입력 예시</li>
-        <li><a href="예제4-3select.html">예제4-3 select</a> – select와 textarea 사용 예시</li>
-        <li><a href="예제4-4veryfy.html">예제4-4 veryfy</a> – 입력 검증 예시</li>
-        <li><a href="예제4-5audio.html">예제4-5 audio</a> – 오디오 삽입 예시</li>
-        <li><a href="예제4-6video.html">예제4-6 video</a> – 비디오 삽입 예시</li>
-        <li><a href="예제4-7devIframe.html">예제4-7 devIframe</a> – div와 iframe 사용 예시</li>
-        <li><a href="예제4-8list.html">예제4-8 list</a> 목록 리스트 예시</li>
-    </ul>
+
+    <div class="container">
+        <h1>AI와 함께하는 웹호스팅</h1>
+        <ul>
+            <li><a href="htmlFrame.html" target="_blank">HTML 구조</a></li>
+            <li><a href="meta.html" target="_blank">메타태그</a></li>
+            <li><a href="phragraph.html" target="_blank">문단태그</a></li>
+            <li><a href="character.html" target="_blank">다양한 텍스트 강조</a></li>
+            <li><a href="heading.html" target="_blank">h1~h6 헤딩 태그 사용 예시</a></li>
+            <li><a href="stext.html" target="_blank">특수문자 예제</a></li>
+            <li><a href="table.html" target="_blank">테이블 셀 병합(colspan, rowspan)</a></li>
+            <li><a href="tableSpan.html" target="_blank">병합 및 셀 크기 조정 포함 테이블</a></li>
+            <li><a href="tableSize.html" target="_blank">테이블 크기 설정 예제</a></li>
+            <li><a href="image.html" target="_blank">이미지 삽입 예시</a></li>
+            <li><a href="imageSize.html" target="_blank">이미지 크기 예시</a></li>
+            <li><a href="hyperlink.html" target="_blank">하이퍼링크 예시</a></li>
+            <li><a href="hyperImg.html" target="_blank">하이퍼링크 이미지 입력 폼</a></li>
+            <li><a href="input.html" target="_blank">텍스트 및 패스워드 입력 필드 예시</a></li>
+            <li><a href="input2.html" target="_blank">파일, 이미지, 검색 입력 예시</a></li>
+            <li><a href="select.html" target="_blank">select와 textarea 사용 예시</a></li>
+            <li><a href="veryfy.html" target="_blank">입력 검증 예시</a></li>
+            <li><a href="audio.html" target="_blank">오디오 삽입 예시</a></li>
+            <li><a href="video.html" target="_blank">비디오 삽입 예시</a></li>
+            <li><a href="devIframe.html" target="_blank">div와 iframe 사용 예시</a></li>
+            <li><a href="list.html" target="_blank">목록 리스트 예시</a></li>
+        </ul>
+    </div>
+
 </body>
 
 </html>

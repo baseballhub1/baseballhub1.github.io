@@ -31,7 +31,7 @@
         /* 갤러리 이미지 */
         .gallery-img { width: 100%; max-width: 400px; display: block; margin: 20px auto; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        /* 웹 기술 스택 아코디언 스타일 */
+        /* 아코디언 스타일 (수업 목록용으로 재활용) */
         .stack-category { margin-bottom: 10px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
         .stack-header { 
             background: #f4f4f4; padding: 15px 20px; cursor: pointer; font-weight: bold; 
@@ -40,13 +40,13 @@
         .stack-header:hover { background: #e94560; color: #fff; }
         .stack-content { display: none; padding: 15px; background: #fff; }
 
-        /* 링크 버튼 스타일 */
-        .file-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .file-links a { 
+        /* 수업 목록 내부 링크 버튼 스타일 */
+        .lecture-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .lecture-links a { 
             display: block; padding: 12px; background: #fff; text-align: center; 
-            text-decoration: none; color: #333; border-radius: 5px; border: 1px solid #ddd; font-size: 0.9rem; transition: 0.2s;
+            text-decoration: none; color: #333; border-radius: 5px; border: 1px solid #ddd; font-size: 0.95rem; font-weight: 500; transition: 0.2s;
         }
-        .file-links a:hover { border-color: #e94560; color: #e94560; background: #fff5f6; }
+        .lecture-links a:hover { border-color: #e94560; color: #e94560; background: #fff5f6; }
 
         /* 보고서 전용 카드 스타일 */
         .report-card { background: #fff5f6; border: 1px dashed #e94560; padding: 25px; border-radius: 10px; text-align: center; margin-top: 15px; }
@@ -66,9 +66,10 @@
         <nav>
             <a href="#intro">소개</a>
             <a href="#gallery">갤러리</a>
-            <a href="#tech-stack">웹 기술 스택</a>
+            <a href="#lectures">수업 목록</a>
             <a href="#security">서버 보안</a>
-            <a href="#report">네트워크 보고서</a> <a href="#sns">SNS</a>
+            <a href="#report">네트워크 보고서</a> 
+            <a href="#sns">SNS</a>
         </nav>
     </header>
 
@@ -79,23 +80,51 @@
 
     <section id="gallery">
         <h2>갤러리</h2>
-        <img src="img\html img1.png" alt="Baseball Database Logo" class="gallery-img">
+        <img src="img/html img1.png" alt="Baseball Database Logo" class="gallery-img">
         <p style="text-align: center; margin-top: 10px;">프로젝트의 핵심 아이덴티티를 담은 로고 디자인</p>
     </section>
 
-        <section id="tech-stack">
-        <h2>02. 웹 기술 스택</h2>
-        <ul class="tech-list">
-            <li class="tech-item">
-                <a href="html/htmlTag.html">HTML5</a>
-            </li>
-            <li class="tech-item">
-                <a href="css/CssList.html">CSS3</a>
-            </li>
-            <li class="tech-item">
-                <a href="js/JsList.html">JavaScript</a>
-            </li>
-        </ul>
+    <section id="lectures">
+        <h2>02. 수업 목록</h2>
+        
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('prof-park')">
+                <span>박경배 교수님</span>
+                <span>▼</span>
+            </div>
+            <div id="prof-park" class="stack-content">
+                <div class="lecture-links">
+                    <a href="html\lecture\intro_to_it.html">IT개론</a>
+                    <a href="html/lecture/ai_web_programming.html">AI웹 프로그래밍</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('prof-hong-sj')">
+                <span>홍성준 교수님</span>
+                <span>▼</span>
+            </div>
+            <div id="prof-hong-sj" class="stack-content">
+                <div class="lecture-links">
+                    <a href="lectures/computer_literacy.html">컴퓨터활용능력</a>
+                    <a href="lectures/ai_content.html">AI콘텐츠활용</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('prof-hong-kh')">
+                <span>홍광희 교수님</span>
+                <span>▼</span>
+            </div>
+            <div id="prof-hong-kh" class="stack-content">
+                <div class="lecture-links">
+                    <a href="lectures/java_programming.html">JAVA프로그래밍</a>
+                    <a href="lectures/ai_application.html">인공지능 활용</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="security">
@@ -111,17 +140,7 @@
         </div>
     </section>
 
-    <section id="report">
-        <h2>컴퓨터 및 네트워크 기술 이해 보고서</h2>
-        <div class="report-card">
-            <p style="font-size: 1.1rem; color: #1a1a2e;"><strong>과제 제출 정보</strong></p>
-            <p style="margin-top: 5px; color: #555;">성명: 권명호 | 학번: 20260115</p>
-            <p style="margin-top: 10px; font-size: 0.95rem;">바이러스 종류 및 감염 방법, 5G 이동 통신의 특징, 근거리 무선 통신 기술, 그리고 IoT 데이터 라이프사이클에 관한 상세 연구 보고서입니다.</p>
-            <a href="https://docs.google.com/document/d/1ExVSZUAmMv-dX4LEoCv8M8UkX6yKsU0bIEQ5QwOgvT8/edit?usp=sharing" target="_blank" class="btn-report">
-                구글 문서로 보고서 확인하기 ↗
-            </a>
-        </div>
-    </section>
+    
 
     <footer id="sns">
         <h2>Contact & SNS</h2>
