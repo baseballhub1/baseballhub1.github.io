@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 디자인 기본 - 모바일</title>
+    <style>
+        :root {
+            --bg-color: #f9fafb;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --accent-primary: #1e293b; /* 남색 */
+            --accent-secondary: #10b981; /* 에메랄드 */
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Pretendard-Regular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 6장 개요 버튼 */
+        .header-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-link a {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .header-link a:hover {
+            background-color: #334155;
+            transform: translateY(-2px);
+        }
+
+        /* 메인 제목 */
+        h1 {
+            color: var(--accent-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8em;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 그리드 컨테이너 */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        /* 타일(카드) 스타일 */
+        li {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        li a {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            box-sizing: border-box;
+        }
+
+        /* 타일 상단 포인트 바 */
+        li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-primary);
+            opacity: 0.1;
+            transition: opacity 0.2s, background-color 0.2s;
+        }
+
+        /* 번호 표시 */
+        li a span.ex-num {
+            font-weight: 700;
+            font-size: 0.85em;
+            color: var(--accent-secondary);
+            margin-bottom: 6px;
+        }
+
+        /* 제목 표시 */
+        li a span.ex-title {
+            font-size: 1.05em;
+            font-weight: 500;
+            color: var(--text-main);
+            word-break: keep-all;
+        }
+
+        /* 호버 효과 */
+        li:hover,
+        li:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-secondary);
+        }
+
+        li:hover::before {
+            background-color: var(--accent-secondary);
+            opacity: 1;
+        }
+
+        /* 반응형 */
+        @media (max-width: 480px) {
+            body { padding: 15px; }
+            ul { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            li a { padding: 14px; }
+            li a span.ex-title { font-size: 0.95em; }
+        }
+
+        @media (min-width: 768px) {
+            ul { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            ul { grid-template-columns: repeat(4, 1fr); }
+            body { padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-link">
+        <a href="chap6Introduce.html" target="_blank">6장 개요</a>
+    </div>
+    <h1>CSS 디자인 기본</h1>
+    <ul>
+        <li>
+            <a href="display.html" target="_blank">
+                <span class="ex-num">01</span>
+                <span class="ex-title">display 속성</span>
+            </a>
+        </li>
+        <li>
+            <a href="marginPadding.html" target="_blank">
+                <span class="ex-num">02</span>
+                <span class="ex-title">margin과 padding</span>
+            </a>
+        </li>
+        <li>
+            <a href="static.html" target="_blank">
+                <span class="ex-num">03</span>
+                <span class="ex-title">position: static</span>
+            </a>
+        </li>
+        <li>
+            <a href="relative.html" target="_blank">
+                <span class="ex-num">04</span>
+                <span class="ex-title">position: relative</span>
+            </a>
+        </li>
+        <li>
+            <a href="absolute.html" target="_blank">
+                <span class="ex-num">05</span>
+                <span class="ex-title">position: absolute</span>
+            </a>
+        </li>
+        <li>
+            <a href="fixed.html" target="_blank">
+                <span class="ex-num">06</span>
+                <span class="ex-title">position: fixed</span>
+            </a>
+        </li>
+        <li>
+            <a href="sticky.html" target="_blank">
+                <span class="ex-num">07</span>
+                <span class="ex-title">position: sticky</span>
+            </a>
+        </li>
+        <li>
+            <a href="position.html" target="_blank">
+                <span class="ex-num">08</span>
+                <span class="ex-title">다양한 position 속성</span>
+            </a>
+        </li>
+        <li>
+            <a href="zIndex.html" target="_blank">
+                <span class="ex-num">09</span>
+                <span class="ex-title">z-Index</span>
+            </a>
+        </li>
+        <li>
+            <a href="opacity.html" target="_blank">
+                <span class="ex-num">10</span>
+                <span class="ex-title">투명성 (Opacity)</span>
+            </a>
+        </li>
+        <li>
+            <a href="overflow.html" target="_blank">
+                <span class="ex-num">11</span>
+                <span class="ex-title">overflow 속성</span>
+            </a>
+        </li>
+        <li>
+            <a href="floatClear.html" target="_blank">
+                <span class="ex-num">12</span>
+                <span class="ex-title">float과 clear</span>
+            </a>
+        </li>
+        <li>
+            <a href="headerStyle.html" target="_blank">
+                <span class="ex-num">13</span>
+                <span class="ex-title">헤더 스타일</span>
+            </a>
+        </li>
+        <li>
+            <a href="navigation.html" target="_blank">
+                <span class="ex-num">14</span>
+                <span class="ex-title">내비게이션</span>
+            </a>
+        </li>
+        <li>
+            <a href="horizontalNav.html" target="_blank">
+                <span class="ex-num">15</span>
+                <span class="ex-title">수평 내비게이션</span>
+            </a>
+        </li>
+        <li>
+            <a href="verticalNav.html" target="_blank">
+                <span class="ex-num">16</span>
+                <span class="ex-title">수직 내비게이션</span>
+            </a>
+        </li>
+        <li>
+            <a href="dropDown.html" target="_blank">
+                <span class="ex-num">17</span>
+                <span class="ex-title">드롭다운 메뉴</span>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
