@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Database Project</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        
+        /* 헤더 스타일 */
+        header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav { display: flex; justify-content: center; gap: 20px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #e94560; }
+
+        /* 섹션 공통 스타일 */
+        section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #eee; }
+        h2 { margin-bottom: 20px; color: #1a1a2e; border-left: 5px solid #e94560; padding-left: 10px; }
+
+        /* 갤러리 이미지 */
+        .gallery-img { width: 100%; max-width: 400px; display: block; margin: 20px auto; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* 링크 버튼 스타일 */
+        .file-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .file-links a { 
+            display: block; padding: 15px; background: #f4f4f4; text-align: center; 
+            text-decoration: none; color: #333; border-radius: 8px; border: 1px solid #ddd; transition: 0.3s;
+        }
+        .file-links a:hover { background: #e94560; color: #fff; transform: translateY(-3px); }
+
+        /* SNS 푸터 */
+        footer { background: #1a1a2e; color: #fff; padding: 40px 20px; text-align: center; }
+        .sns-links a { color: #fff; margin: 0 15px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px dashed #e94560; }
+        
+        .security-card { background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#intro">소개</a>
+            <a href="#gallery">갤러리</a>
+            <a href="#structure">HTML 구조</a>
+            <a href="#security">서버 보안</a>
+            <a href="#sns">SNS</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>홈페이지 소개</h2>
+        <p>데이터를 통해 야구의 미래를 예측하는 <strong>Baseball Database</strong> 프로젝트입니다. KBO 리그의 방대한 데이터를 수집하고 분석하여 사용자에게 인사이트를 제공하는 것을 목표로 합니다.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>갤러리</h2>
+        <img src="../img\html img1.png" alt="Baseball Database Logo" class="gallery-img">
+        <p style="text-align: center; margin-top: 10px;">프로젝트의 핵심 아이덴티티를 담은 로고 디자인</p>
+    </section>
+
+    <section id="structure">
+        <h2>HTML 구조 (Project Files)</h2>
+        <p>각 모듈별로 정리된 HTML 문서들입니다. 클릭하면 해당 페이지로 이동합니다.</p>
+        <div class="file-links">
+            <a href="metaHtml.html" target="_blank">메타테그</a>
+            <a href="heading.html" target="_blank">헤딩테그</a>
+            <a href="테이틀 병합html.html" target="_blank">테이블 병합</a>
+            <a href="img1.html" target="_blank">이미지 태그</a>
+        </div>
+    </section>
+
+    <section id="security">
+        <h2>서버 보안 소개</h2>
+        <div class="security-card">
+            <p>데이터의 무결성과 사용자 정보를 보호하기 위해 다음과 같은 보안 원칙을 준수합니다.</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>HTTPS 암호화:</strong> SSL/TLS 인증서를 사용하여 클라이언트와 서버 간의 모든 통신을 암호화합니다.</li>
+                <li><strong>SQL Injection 방지:</strong> Prepared Statements를 사용하여 데이터베이스 쿼리를 안전하게 처리합니다.</li>
+                <li><strong>인증 및 인가:</strong> JWT(JSON Web Token) 또는 세션 기반의 강력한 인증 시스템을 구축합니다.</li>
+                <li><strong>XSS 방어:</strong> 사용자 입력값에 대한 필터링과 이스케이프 처리를 통해 악성 스크립트 실행을 차단합니다.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="sns">
+        <h2>Contact & SNS</h2>
+        <div class="sns-links">
+            <a href="https://www.instagram.com/number_9_baseball?igsh=MTNyazVvYTA4ejNqaA==" target="_blank">Instagram</a>
+            <a href="mailto:peterkwon06@naver.com">Email Contact</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Baseball Database Project. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
