@@ -1,0 +1,33 @@
+<html><head>
+<title>예제7-11 Color Animation</title>
+<style> 
+ 
+  .box {
+    width: 200px;                
+    height: 200px;                
+    border: 5px solid red;      
+    animation: borderColorChange 4s infinite; 
+   
+    margin: 100px auto;           
+  }
+
+ 
+  div:hover {
+    width: 400px;                  
+  }
+
+
+  @keyframes borderColorChange {
+    0%   { border: 2px dotted red; }    
+    25%  { border: 5px dashed blue; }   
+    50%  { border: 15px groove green; }  
+    75%  { border: 5px inset orange; }   
+    100% { border: 2px solid cyan; }      
+  }
+</style>
+</head>
+<body>
+ 
+  <div class="box"><h4>Color Animation</h4></div>
+
+</body></html>
