@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>키보드 이벤트 실습</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus {
+            border-color: #4f46e5;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>메시지 입력 (Enter)</h2>
+        
+        <input type="text" id="userInput" onkeydown="checkEnter(event)" placeholder="내용 입력 후 Enter">
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkEnter(event) {
+            if (event.key === "Enter" || event.keyCode === 13) {
+                let text = document.getElementById("userInput").value;
+                document.getElementById("result").innerHTML = "입력한 값: <b>" + text + "</b>";
+            }
+        }
+    </script>
+</body>
+</html>

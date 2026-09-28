@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>페이지 로드 이벤트 실습</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
+            font-size: 15px;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function initPage() {
+            alert("페이지의 모든 리소스가 완전히 로드되었습니다!");
+        }
+    </script>
+</head>
+<body onload="initPage()">
+    <div class="container">
+        <h1>환영합니다!</h1>
+        <p>웹 페이지 로딩 완료 후 알림창이 실행됩니다.</p>
+    </div>
+</body>
+</html>

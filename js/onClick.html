@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 기반 덧셈 계산기</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .calc-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 80px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .operator {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        #resultArea {
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>덧셈 연산기</h1>
+        <div class="calc-box">
+            <input type="number" id="inputX" value="5">
+            <span class="operator">+</span>
+            <input type="number" id="inputY" value="6">
+        </div>
+        <button onclick="executeCalc()">계산 실행</button>
+
+        <div id="resultArea">결과가 여기에 표시됩니다</div>
+    </div>
+
+    <script>
+        function sumValues(a, b) {
+            return a + b;
+        }
+
+        function executeCalc() {
+            let x = Number(document.getElementById("inputX").value);
+            let y = Number(document.getElementById("inputY").value);
+            let total = sumValues(x, y);
+            document.getElementById("resultArea").innerHTML = "결과: " + total;
+        }
+    </script>
+</body>
+</html>

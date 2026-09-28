@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 개념 및 연산자 정리</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 16px;
+            color: #1f2937;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-left: 4px solid #4f46e5;
+            padding-left: 8px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background: #f9fafb;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #374151;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        code {
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+        .result-box {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .result-box div {
+            margin-bottom: 6px;
+        }
+        .result-box div:last-child {
+            margin-bottom: 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+        }
+        pre {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #4b5563;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript 개념 및 연산자 정리</h1>
+
+        <h2>1. 주요 키워드 및 연산자 종류</h2>
+        <ul>
+            <li><span>주요 키워드(Reserved Words)</span> <code>var, let, const, function, if, else, for, while, return</code></li>
+            <li><span>산술 연산자</span> <code>+, -, *, /, %, **</code></li>
+            <li><span>대입 연산자</span> <code>=, +=, -=, *=, /=</code></li>
+            <li><span>비교 연산자</span> <code>==, ===, !=, !==, &gt;, &lt;</code></li>
+        </ul>
+
+        <hr>
+
+        <h2>2. 연산 실행 결과</h2>
+        <div class="result-box" id="calcResult"></div>
+
+        <hr>
+
+        <h2>3. 연산자 종류 및 우선순위 참고</h2>
+        <pre><code>자바스크립트 연산자 종류:
+- 산술 연산자: 사칙연산 및 수학적 계산 (+, -, *, /, %, **)
+- 할당(대입) 연산자: 변수에 값을 할당 (=, +=, -=, *=, /=, %=)
+- 증감 연산자: 값을 1 증가 또는 감소 (++, --)
+- 비교 연산자: 값의 크기나 동등성 비교 (==, ===, !=, !==, &gt;, &lt;, &gt;=, &lt;=)
+- 논리 연산자: 참/거짓 논리 연산 (&amp;&amp;, ||, !, ??)
+- 삼항(조건) 연산자: 조건에 따른 값 선택 (조건 ? 참일때 : 거짓일때)
+- 비트 연산자: 비트 단위 연산 (&amp;, |, ^, ~, &lt;&lt;, &gt;&gt;)
+- 타입/객체 연산자: 데이터 타입 및 객체 확인 (typeof, instanceof, delete, in)
+
+연산자 우선순위 (높은 순 → 낮은 순):
+우선순위가 높을수록 먼저 계산됩니다.</code></pre>
+    </div>
+
+    <script>
+        let x = 17;
+        let y = 3;
+        let z1 = x + y;
+        let z2 = Math.floor(x / y);
+        let z3 = x % y;
+
+        let resultHtml = 
+            '<div>x + y = <b>' + z1 + '</b></div>' +
+            '<div>x // y (몫) = <b>' + z2 + '</b></div>' +
+            '<div>x % y (나머지) = <b>' + z3 + '</b></div>';
+
+        document.getElementById("calcResult").innerHTML = resultHtml;
+    </script>
+</body>
+</html>

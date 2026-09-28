@@ -1,0 +1,39 @@
+<html><head>
+    <title>Transform-skew()</title> 
+    <meta charset="utf-8">
+    <style>
+    
+        .box {
+            width: 120px;            
+            height: 80px;           
+            margin: 10px;            
+            background-color: lightblue; 
+            line-height: 80px;       
+            text-align: center;      
+            font-weight: bold;       
+            display: inline-block;   
+        }
+
+        .skewX {
+            transform: skew(200deg, 0); 
+        }
+
+        .skewY {
+            transform: skew(0, 200deg); 
+        }
+
+        .skewXY {
+            transform: skew(200deg, 200deg); 
+    </style>
+</head>
+<body>
+    <h1>Transform - skew()</h1>
+
+    <div class="box skewX">Skew X skew(200deg, 0)</div>
+
+    <div class="box skewY">Skew Y skew(0, 200deg)</div>
+
+    <div class="box skewXY">Skew XY skew(200deg, 200deg)</div>
+
+
+</body></html>

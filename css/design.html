@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI와 함께하는 웹호스팅</title>
+    <style>
+        /* 글로벌 스타일 초기화 및 배경 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 메인 컨테이너 */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 메인 타이틀 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* 타이틀 하단 장식 선 */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #8a2387, #f27121);
+            border-radius: 2px;
+        }
+
+        /* 리스트 스타일 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 리스트 아이템 (카드) */
+        li {
+            margin-bottom: 14px;
+            perspective: 1000px;
+        }
+
+        /* 링크 스타일 (카드 내부 구성) */
+        li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* 설명 텍스트를 위한 가상 요소 처리 또는 폰트 스타일 */
+        li a::after {
+            content: '바로가기 →';
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* 마우스 호버(Hover) 효과 */
+        li:hover a {
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        li:hover a::after {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
+        /* 마지막 아이템 마진 제거 */
+        li:last-child {
+            margin-bottom: 0;
+        }
+        /* 뒤로가기 버튼 */
+        .back-box { text-align: center; margin-top: 30px; }
+        .btn-back {
+            display: inline-block;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>AI와 함께하는 웹호스팅</h1>
+        <ul>
+            <!-- 같은 css 폴더 안의 design 하위 폴더(design/) 경로 적용 -->
+            <li><a href="design/DISPLAY_속성.html" target="_blank">DISPLAY 속성</a></li>
+            <li><a href="design/margin과_padding.html" target="_blank">margin과 padding</a></li>
+            <li><a href="design/position_static.html" target="_blank">position: static</a></li>
+            <li><a href="design/position_relative.html" target="_blank">position: relative</a></li>
+            <li><a href="design/position_absolute.html" target="_blank">position: absolute</a></li>
+            <li><a href="design/position_fixed.html" target="_blank">position: fixed</a></li>
+            <li><a href="design/position_sticky.html" target="_blank">position: sticky</a></li>
+            <li><a href="design/다양한_position_속성.html" target="_blank">다양한 position 속성</a></li>
+            <li><a href="design/z-Index.html" target="_blank">z-Index</a></li>
+            <li><a href="design/투명성_Opacity.html" target="_blank">투명성 (Opacity)</a></li>
+            <li><a href="design/overflow.html" target="_blank">overflow</a></li>
+            <li><a href="design/float과_clear.html" target="_blank">float과 clear</a></li>
+            <li><a href="design/헤더_스타일.html" target="_blank">헤더 스타일</a></li>
+            <li><a href="design/내비게이션.html" target="_blank">내비게이션</a></li>
+            <li><a href="design/수평_내비게이션.html" target="_blank">수평 내비게이션</a></li>
+            <li><a href="design/수직_내비게이션.html" target="_blank">수직 내비게이션</a></li>
+            <li><a href="design/드롭다운_메뉴.html" target="_blank">드롭다운 메뉴</a></li>
+        </ul>
+        <div class="back-box">
+            <a href="../lecture/ai_web_programming.html" class="btn-back" onclick="if (document.referrer) { history.back(); return false; }">← 뒤로가기</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

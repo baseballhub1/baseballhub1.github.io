@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>모던 연산자 계산기</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        label {
+            font-weight: 600;
+            color: #555;
+        }
+        input[type="number"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 120px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+        }
+        .section-title {
+            font-size: 16px;
+            color: #1f2937;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4f46e5;
+            padding-left: 8px;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            background: #f9fafb;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>산술 연산자 분석기</h1>
+
+        <div class="input-group">
+            <label for="valA">첫 번째 숫자:</label>
+            <input type="number" id="valA" value="17">
+        </div>
+        <div class="input-group">
+            <label for="valB">두 번째 숫자:</label>
+            <input type="number" id="valB" value="3">
+        </div>
+        <button onclick="computeMath()">연산 실행하기</button>
+
+        <hr>
+
+        <div id="calcResult"></div>
+    </div>
+
+    <script>
+        function computeMath() {
+            let x = Number(document.getElementById("valA").value);
+            let y = Number(document.getElementById("valB").value);
+
+            let htmlOutput = 
+                '<div class="section-title">1. 기본 사칙연산</div>' +
+                '<ul>' +
+                    '<li><span>덧셈 (+)</span> <b>' + (x + y) + '</b></li>' +
+                    '<li><span>뺄셈 (-)</span> <b>' + (x - y) + '</b></li>' +
+                    '<li><span>곱셈 (*)</span> <b>' + (x * y) + '</b></li>' +
+                    '<li><span>나눗셈 (/)</span> <b>' + (x / y) + '</b></li>' +
+                '</ul>' +
+                '<div class="section-title">2. 몫과 나머지</div>' +
+                '<ul>' +
+                    '<li><span>정수 몫 (Math.floor)</span> <b>' + Math.floor(x / y) + '</b></li>' +
+                    '<li><span>나머지 (%)</span> <b>' + (x % y) + '</b></li>' +
+                '</ul>' +
+                '<div class="section-title">3. 기타 연산</div>' +
+                '<ul>' +
+                    '<li><span>거듭제곱 (**)</span> <b>' + (x ** y) + '</b></li>' +
+                    '<li><span>단항 부호 반전 (-)</span> <b>' + (-x) + '</b></li>' +
+                '</ul>';
+
+            document.getElementById("calcResult").innerHTML = htmlOutput;
+        }
+
+        computeMath();
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실습: 동적 덧셈 연산기</title>
+</head>
+<body>
+    <h2>JavaScript 연산 및 함수 실습</h2>
+
+    <!-- 1. 입력 필드 구성 (ID 및 레이블 변경) -->
+    <label>첫 번째 숫자: <input type="number" id="valX" value="10"></label><br><br>
+    <label>두 번째 숫자: <input type="number" id="valY" value="20"></label><br><br>
+    
+    <!-- 함수 호출 버튼 -->
+    <button onclick="execAddition()">연산 실행하기</button>
+
+    <hr>
+
+    <!-- 2. 결과 출력 영역 (ID 변경) -->
+    <h3>연산 결과 출력:</h3>
+    <p id="userOutput">사용자 입력: X = 10, Y = 20 → 총합: 30</p>
+    <p id="fixedOutput">기본값 테스트: X = 7, Y = 3 → 총합: 10</p>
+
+    <script>
+        // 덧셈 연산을 전담하는 독립 함수
+        function addNumbers(x, y) {
+            let total = x + y;
+            return total;
+        }
+
+        // 이벤트를 받아 화면을 업데이트하는 실행 함수
+        function execAddition() {
+            // 입력값을 가져와 숫자로 변환
+            let x = Number(document.getElementById("valX").value);
+            let y = Number(document.getElementById("valY").value);
+
+            // 동적 입력값 연산 결과 출력
+            let dynamicResult = addNumbers(x, y);
+            document.getElementById("userOutput").innerHTML = 
+                "사용자 입력: X = " + x + ", Y = " + y + " → <b>총합: " + dynamicResult + "</b>";
+
+            // 고정값 연산 결과 출력
+            let fixedResult = addNumbers(7, 3);
+            document.getElementById("fixedOutput").innerHTML = 
+                "기본값 테스트: X = 7, Y = 3 → <b>총합: " + fixedResult + "</b>";
+        }
+
+        // 페이지 로딩 완료 시 자동 실행
+        window.onload = function() {
+            execAddition();
+        };
+    </script>
+</body>
+</html>
