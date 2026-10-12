@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>자바스크립트 통합 실습 — 이벤트 함수부터 do-while까지</title><style>* { box-sizing: border-box; } body { margin: 0; padding: 28px 18px; background: #f4f7fb; color: #18243a; font-family: system-ui, sans-serif; } main { max-width: 900px; margin: auto; } header, section { padding: 28px; background: white; border-radius: 18px; margin-bottom: 24px; box-shadow: 0 12px 36px #18243a12; } h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.1rem; } p { line-height: 1.7; } label { display: block; margin: 16px 0; } input, select { padding: 10px; border: 1px solid #b8c4d8; border-radius: 8px; max-width: 100%; } button { padding: 12px 22px; border: 0; border-radius: 10px; background: #4f46e5; color: white; cursor: pointer; font: inherit; } pre { overflow-x: auto; padding: 18px; background: #edf2fa; border-radius: 10px; line-height: 1.6; } pre[aria-live] { white-space: pre-wrap; min-height: 60px; } a { color: #4338ca; } nav { display: flex; gap: 12px 20px; flex-wrap: wrap; } section { scroll-margin-top: 20px; } :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }</style></head>
+<body><main><header><h1>자바스크립트 통합 실습</h1><p>이벤트 함수부터 do-while까지 한 페이지에서 실행하고 코드를 확인하세요.</p><nav aria-label="예제 바로가기"><a href="#lesson0">이벤트 함수</a><a href="#lesson1">함수 (Function)</a><a href="#lesson2">내장 함수 (prompt, confirm, alert)</a><a href="#lesson3">if-else 조건문</a><a href="#lesson4">else if 조건문</a><a href="#lesson5">switch-case 조건문</a><a href="#lesson6">for 반복문</a><a href="#lesson7">이중 for문</a><a href="#lesson8">while 반복문</a><a href="#lesson9">do-while 반복문</a></nav></header>
+<section id="lesson0">
+<h2>이벤트 함수</h2><p>버튼의 click 이벤트에 함수를 연결합니다. 버튼을 누를 때마다 횟수가 증가합니다.</p>
+
+<button id="lesson0-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson0-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>let count = 0;
+function handleClick() {
+    count += 1;
+    document.getElementById(&quot;result&quot;).textContent = &quot;클릭 횟수: &quot; + count;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, handleClick);</code></pre>
+
+</section>
+<section id="lesson1">
+<h2>함수 (Function)</h2><p>함수는 호출할 때 실행됩니다. 두 숫자를 매개변수로 받아 더한 값을 반환합니다.</p>
+<label>첫 번째 숫자 <input id="lesson1-a" type="number" value="7"></label><label>두 번째 숫자 <input id="lesson1-b" type="number" value="3"></label>
+<button id="lesson1-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson1-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function add(a, b) {
+    return a + b;
+}
+function runExample() {
+    const a = Number(document.getElementById(&quot;a&quot;).value);
+    const b = Number(document.getElementById(&quot;b&quot;).value);
+    document.getElementById(&quot;result&quot;).textContent = &quot;합계: &quot; + add(a, b);
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson2">
+<h2>내장 함수 (prompt, confirm, alert)</h2><p>prompt는 입력, confirm은 확인 또는 취소, alert는 알림 창을 표시합니다.</p>
+
+<button id="lesson2-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson2-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const name = prompt(&quot;이름을 입력하세요.&quot;);
+    if (name === null) {
+        document.getElementById(&quot;result&quot;).textContent = &quot;입력을 취소했습니다.&quot;;
+        return;
+    }
+    const accepted = confirm(name + &quot;님, 알림을 표시할까요?&quot;);
+    if (accepted) {
+        alert(name + &quot;님, 안녕하세요!&quot;);
+    }
+    document.getElementById(&quot;result&quot;).textContent = accepted ? &quot;확인을 선택했습니다.&quot; : &quot;취소를 선택했습니다.&quot;;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson3">
+<h2>if-else 조건문</h2><p>입력한 정수가 짝수인지 홀수인지 조건에 따라 구분합니다.</p>
+<label>정수 <input id="lesson3-number" type="number" step="1" value="4"></label>
+<button id="lesson3-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson3-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const input = document.getElementById(&quot;number&quot;).value;
+    const number = Number(input);
+    let message;
+    if (input === &quot;&quot; || !Number.isSafeInteger(number)) {
+        message = &quot;안전한 범위의 정수를 입력하세요.&quot;;
+    } else {
+        if (number % 2 === 0) {
+            message = &quot;짝수입니다.&quot;;
+        } else {
+            message = &quot;홀수입니다.&quot;;
+        }
+    }
+    document.getElementById(&quot;result&quot;).textContent = message;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson4">
+<h2>else if 조건문</h2><p>0~100점의 점수를 입력하면 여러 조건을 차례로 확인하여 등급을 결정합니다.</p>
+<label>점수 <input id="lesson4-score" type="number" min="0" max="100" value="85"></label>
+<button id="lesson4-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson4-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const input = document.getElementById(&quot;score&quot;).value;
+    const score = Number(input);
+    let grade;
+    if (input === &quot;&quot; || !Number.isFinite(score) || score &lt; 0 || score &gt; 100) {
+        grade = &quot;0~100점 사이로 입력하세요.&quot;;
+    } else if (score &gt;= 90) {
+        grade = &quot;A&quot;;
+    } else if (score &gt;= 80) {
+        grade = &quot;B&quot;;
+    } else if (score &gt;= 70) {
+        grade = &quot;C&quot;;
+    } else {
+        grade = &quot;D&quot;;
+    }
+    document.getElementById(&quot;result&quot;).textContent = &quot;결과: &quot; + grade;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson5">
+<h2>switch-case 조건문</h2><p>선택값과 일치하는 case를 실행합니다. break로 switch문을 종료합니다.</p>
+<label>요일 <select id="lesson5-day"><option value="월">월요일</option><option value="금">금요일</option><option value="토">토요일</option><option value="일">일요일</option><option value="화">화요일</option></select></label>
+<button id="lesson5-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson5-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const day = document.getElementById(&quot;day&quot;).value;
+    let message;
+    switch (day) {
+        case &quot;월&quot;:
+            message = &quot;한 주의 시작입니다.&quot;;
+            break;
+        case &quot;금&quot;:
+            message = &quot;금요일입니다.&quot;;
+            break;
+        case &quot;토&quot;:
+        case &quot;일&quot;:
+            message = &quot;주말입니다.&quot;;
+            break;
+        default:
+            message = &quot;평일입니다.&quot;;
+    }
+    document.getElementById(&quot;result&quot;).textContent = message;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson6">
+<h2>for 반복문</h2><p>초기값, 조건, 증감을 지정하여 1부터 5까지 출력하고 합계를 계산합니다.</p>
+
+<button id="lesson6-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson6-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const lines = [];
+    let sum = 0;
+    for (let i = 1; i &lt;= 5; i++) {
+        lines.push(String(i));
+        sum += i;
+    }
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot; → &quot;) + &quot;\n합계: &quot; + sum;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson7">
+<h2>이중 for문</h2><p>바깥 반복문은 단을, 안쪽 반복문은 곱하는 수를 바꾸어 2~4단을 출력합니다.</p>
+
+<button id="lesson7-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson7-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const lines = [];
+    for (let dan = 2; dan &lt;= 4; dan++) {
+        for (let i = 1; i &lt;= 9; i++) {
+            lines.push(dan + &quot; × &quot; + i + &quot; = &quot; + dan * i);
+        }
+        lines.push(&quot;&quot;);
+    }
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot;\n&quot;);
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson8">
+<h2>while 반복문</h2><p>조건을 먼저 검사합니다. 시작값이 5보다 크면 반복하지 않습니다.</p>
+<label>시작값 (1~6) <input id="lesson8-start" type="number" min="1" max="6" step="1" value="1"></label>
+<button id="lesson8-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson8-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const input = document.getElementById(&quot;start&quot;).value;
+    let i = Number(input);
+    if (input === &quot;&quot; || !Number.isInteger(i) || i &lt; 1 || i &gt; 6) {
+        document.getElementById(&quot;result&quot;).textContent = &quot;1~6 사이의 정수를 입력하세요.&quot;;
+        return;
+    }
+    const lines = [];
+    while (i &lt;= 5) {
+        lines.push(String(i));
+        i++;
+    }
+    document.getElementById(&quot;result&quot;).textContent = lines.length ? lines.join(&quot; → &quot;) : &quot;조건이 거짓이므로 실행 횟수는 0회입니다.&quot;;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+<section id="lesson9">
+<h2>do-while 반복문</h2><p>본문을 실행한 뒤 조건을 검사합니다. 시작값이 6이어도 본문을 한 번 실행합니다.</p>
+<label>시작값 (1~6) <input id="lesson9-start" type="number" min="1" max="6" step="1" value="6"></label>
+<button id="lesson9-run" type="button">예제 실행</button>
+<h3>실행 결과</h3><pre id="lesson9-result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h3>예제 코드</h3><pre><code>function runExample() {
+    const input = document.getElementById(&quot;start&quot;).value;
+    let i = Number(input);
+    if (input === &quot;&quot; || !Number.isInteger(i) || i &lt; 1 || i &gt; 6) {
+        document.getElementById(&quot;result&quot;).textContent = &quot;1~6 사이의 정수를 입력하세요.&quot;;
+        return;
+    }
+    const lines = [];
+    do {
+        lines.push(String(i));
+        i++;
+    } while (i &lt;= 5);
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot; → &quot;) + &quot;\n실행 횟수: &quot; + lines.length + &quot;회&quot;;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+
+</section>
+</main><script>
+(() => {
+
+let count = 0;
+function handleClick() {
+    count += 1;
+    document.getElementById("lesson0-result").textContent = "클릭 횟수: " + count;
+}
+document.getElementById("lesson0-run").addEventListener("click", handleClick);
+
+})();
+(() => {
+
+function add(a, b) {
+    return a + b;
+}
+function runExample() {
+    const a = Number(document.getElementById("lesson1-a").value);
+    const b = Number(document.getElementById("lesson1-b").value);
+    document.getElementById("lesson1-result").textContent = "합계: " + add(a, b);
+}
+document.getElementById("lesson1-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const name = prompt("이름을 입력하세요.");
+    if (name === null) {
+        document.getElementById("lesson2-result").textContent = "입력을 취소했습니다.";
+        return;
+    }
+    const accepted = confirm(name + "님, 알림을 표시할까요?");
+    if (accepted) {
+        alert(name + "님, 안녕하세요!");
+    }
+    document.getElementById("lesson2-result").textContent = accepted ? "확인을 선택했습니다." : "취소를 선택했습니다.";
+}
+document.getElementById("lesson2-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const input = document.getElementById("lesson3-number").value;
+    const number = Number(input);
+    let message;
+    if (input === "" || !Number.isSafeInteger(number)) {
+        message = "안전한 범위의 정수를 입력하세요.";
+    } else {
+        if (number % 2 === 0) {
+            message = "짝수입니다.";
+        } else {
+            message = "홀수입니다.";
+        }
+    }
+    document.getElementById("lesson3-result").textContent = message;
+}
+document.getElementById("lesson3-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const input = document.getElementById("lesson4-score").value;
+    const score = Number(input);
+    let grade;
+    if (input === "" || !Number.isFinite(score) || score < 0 || score > 100) {
+        grade = "0~100점 사이로 입력하세요.";
+    } else if (score >= 90) {
+        grade = "A";
+    } else if (score >= 80) {
+        grade = "B";
+    } else if (score >= 70) {
+        grade = "C";
+    } else {
+        grade = "D";
+    }
+    document.getElementById("lesson4-result").textContent = "결과: " + grade;
+}
+document.getElementById("lesson4-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const day = document.getElementById("lesson5-day").value;
+    let message;
+    switch (day) {
+        case "월":
+            message = "한 주의 시작입니다.";
+            break;
+        case "금":
+            message = "금요일입니다.";
+            break;
+        case "토":
+        case "일":
+            message = "주말입니다.";
+            break;
+        default:
+            message = "평일입니다.";
+    }
+    document.getElementById("lesson5-result").textContent = message;
+}
+document.getElementById("lesson5-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const lines = [];
+    let sum = 0;
+    for (let i = 1; i <= 5; i++) {
+        lines.push(String(i));
+        sum += i;
+    }
+    document.getElementById("lesson6-result").textContent = lines.join(" → ") + "\n합계: " + sum;
+}
+document.getElementById("lesson6-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const lines = [];
+    for (let dan = 2; dan <= 4; dan++) {
+        for (let i = 1; i <= 9; i++) {
+            lines.push(dan + " × " + i + " = " + dan * i);
+        }
+        lines.push("");
+    }
+    document.getElementById("lesson7-result").textContent = lines.join("\n");
+}
+document.getElementById("lesson7-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const input = document.getElementById("lesson8-start").value;
+    let i = Number(input);
+    if (input === "" || !Number.isInteger(i) || i < 1 || i > 6) {
+        document.getElementById("lesson8-result").textContent = "1~6 사이의 정수를 입력하세요.";
+        return;
+    }
+    const lines = [];
+    while (i <= 5) {
+        lines.push(String(i));
+        i++;
+    }
+    document.getElementById("lesson8-result").textContent = lines.length ? lines.join(" → ") : "조건이 거짓이므로 실행 횟수는 0회입니다.";
+}
+document.getElementById("lesson8-run").addEventListener("click", runExample);
+
+})();
+(() => {
+
+function runExample() {
+    const input = document.getElementById("lesson9-start").value;
+    let i = Number(input);
+    if (input === "" || !Number.isInteger(i) || i < 1 || i > 6) {
+        document.getElementById("lesson9-result").textContent = "1~6 사이의 정수를 입력하세요.";
+        return;
+    }
+    const lines = [];
+    do {
+        lines.push(String(i));
+        i++;
+    } while (i <= 5);
+    document.getElementById("lesson9-result").textContent = lines.join(" → ") + "\n실행 횟수: " + lines.length + "회";
+}
+document.getElementById("lesson9-run").addEventListener("click", runExample);
+
+})();
+</script></body></html>
