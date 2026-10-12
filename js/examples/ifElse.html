@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>if-else 조건문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>if-else 조건문</h1><p>입력한 정수가 짝수인지 홀수인지 조건에 따라 구분합니다.</p>
+<label>정수 <input id="number" type="number" step="1" value="4"></label>
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const input = document.getElementById(&quot;number&quot;).value;
+    const number = Number(input);
+    let message;
+    if (input === &quot;&quot; || !Number.isSafeInteger(number)) {
+        message = &quot;안전한 범위의 정수를 입력하세요.&quot;;
+    } else {
+        if (number % 2 === 0) {
+            message = &quot;짝수입니다.&quot;;
+        } else {
+            message = &quot;홀수입니다.&quot;;
+        }
+    }
+    document.getElementById(&quot;result&quot;).textContent = message;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="elseIf.html">다음: else if 조건문 →</a></nav>
+</main><script>
+function runExample() {
+    const input = document.getElementById("number").value;
+    const number = Number(input);
+    let message;
+    if (input === "" || !Number.isSafeInteger(number)) {
+        message = "안전한 범위의 정수를 입력하세요.";
+    } else {
+        if (number % 2 === 0) {
+            message = "짝수입니다.";
+        } else {
+            message = "홀수입니다.";
+        }
+    }
+    document.getElementById("result").textContent = message;
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

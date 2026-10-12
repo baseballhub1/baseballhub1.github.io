@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>else if 조건문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>else if 조건문</h1><p>0~100점의 점수를 입력하면 여러 조건을 차례로 확인하여 등급을 결정합니다.</p>
+<label>점수 <input id="score" type="number" min="0" max="100" value="85"></label>
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const input = document.getElementById(&quot;score&quot;).value;
+    const score = Number(input);
+    let grade;
+    if (input === &quot;&quot; || !Number.isFinite(score) || score &lt; 0 || score &gt; 100) {
+        grade = &quot;0~100점 사이로 입력하세요.&quot;;
+    } else if (score &gt;= 90) {
+        grade = &quot;A&quot;;
+    } else if (score &gt;= 80) {
+        grade = &quot;B&quot;;
+    } else if (score &gt;= 70) {
+        grade = &quot;C&quot;;
+    } else {
+        grade = &quot;D&quot;;
+    }
+    document.getElementById(&quot;result&quot;).textContent = &quot;결과: &quot; + grade;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="switch.html">다음: switch-case 조건문 →</a></nav>
+</main><script>
+function runExample() {
+    const input = document.getElementById("score").value;
+    const score = Number(input);
+    let grade;
+    if (input === "" || !Number.isFinite(score) || score < 0 || score > 100) {
+        grade = "0~100점 사이로 입력하세요.";
+    } else if (score >= 90) {
+        grade = "A";
+    } else if (score >= 80) {
+        grade = "B";
+    } else if (score >= 70) {
+        grade = "C";
+    } else {
+        grade = "D";
+    }
+    document.getElementById("result").textContent = "결과: " + grade;
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

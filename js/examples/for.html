@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>for 반복문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>for 반복문</h1><p>초기값, 조건, 증감을 지정하여 1부터 5까지 출력하고 합계를 계산합니다.</p>
+
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const lines = [];
+    let sum = 0;
+    for (let i = 1; i &lt;= 5; i++) {
+        lines.push(String(i));
+        sum += i;
+    }
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot; → &quot;) + &quot;\n합계: &quot; + sum;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="nestedFor.html">다음: 이중 for문 →</a></nav>
+</main><script>
+function runExample() {
+    const lines = [];
+    let sum = 0;
+    for (let i = 1; i <= 5; i++) {
+        lines.push(String(i));
+        sum += i;
+    }
+    document.getElementById("result").textContent = lines.join(" → ") + "\n합계: " + sum;
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

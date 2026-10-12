@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>함수 (Function)</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>함수 (Function)</h1><p>함수는 호출할 때 실행됩니다. 두 숫자를 매개변수로 받아 더한 값을 반환합니다.</p>
+<label>첫 번째 숫자 <input id="a" type="number" value="7"></label><label>두 번째 숫자 <input id="b" type="number" value="3"></label>
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function add(a, b) {
+    return a + b;
+}
+function runExample() {
+    const a = Number(document.getElementById(&quot;a&quot;).value);
+    const b = Number(document.getElementById(&quot;b&quot;).value);
+    document.getElementById(&quot;result&quot;).textContent = &quot;합계: &quot; + add(a, b);
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="innerFunc.html">다음: 내장 함수 (prompt, confirm, alert) →</a></nav>
+</main><script>
+function add(a, b) {
+    return a + b;
+}
+function runExample() {
+    const a = Number(document.getElementById("a").value);
+    const b = Number(document.getElementById("b").value);
+    document.getElementById("result").textContent = "합계: " + add(a, b);
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>switch-case 조건문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>switch-case 조건문</h1><p>선택값과 일치하는 case를 실행합니다. break로 switch문을 종료합니다.</p>
+<label>요일 <select id="day"><option value="월">월요일</option><option value="금">금요일</option><option value="토">토요일</option><option value="일">일요일</option><option value="화">화요일</option></select></label>
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const day = document.getElementById(&quot;day&quot;).value;
+    let message;
+    switch (day) {
+        case &quot;월&quot;:
+            message = &quot;한 주의 시작입니다.&quot;;
+            break;
+        case &quot;금&quot;:
+            message = &quot;금요일입니다.&quot;;
+            break;
+        case &quot;토&quot;:
+        case &quot;일&quot;:
+            message = &quot;주말입니다.&quot;;
+            break;
+        default:
+            message = &quot;평일입니다.&quot;;
+    }
+    document.getElementById(&quot;result&quot;).textContent = message;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="for.html">다음: for 반복문 →</a></nav>
+</main><script>
+function runExample() {
+    const day = document.getElementById("day").value;
+    let message;
+    switch (day) {
+        case "월":
+            message = "한 주의 시작입니다.";
+            break;
+        case "금":
+            message = "금요일입니다.";
+            break;
+        case "토":
+        case "일":
+            message = "주말입니다.";
+            break;
+        default:
+            message = "평일입니다.";
+    }
+    document.getElementById("result").textContent = message;
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

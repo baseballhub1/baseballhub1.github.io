@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>이중 for문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>이중 for문</h1><p>바깥 반복문은 단을, 안쪽 반복문은 곱하는 수를 바꾸어 2~4단을 출력합니다.</p>
+
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const lines = [];
+    for (let dan = 2; dan &lt;= 4; dan++) {
+        for (let i = 1; i &lt;= 9; i++) {
+            lines.push(dan + &quot; × &quot; + i + &quot; = &quot; + dan * i);
+        }
+        lines.push(&quot;&quot;);
+    }
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot;\n&quot;);
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="while.html">다음: while 반복문 →</a></nav>
+</main><script>
+function runExample() {
+    const lines = [];
+    for (let dan = 2; dan <= 4; dan++) {
+        for (let i = 1; i <= 9; i++) {
+            lines.push(dan + " × " + i + " = " + dan * i);
+        }
+        lines.push("");
+    }
+    document.getElementById("result").textContent = lines.join("\n");
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

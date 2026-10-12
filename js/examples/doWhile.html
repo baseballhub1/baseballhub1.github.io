@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>do-while 반복문</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>do-while 반복문</h1><p>본문을 실행한 뒤 조건을 검사합니다. 시작값이 6이어도 본문을 한 번 실행합니다.</p>
+<label>시작값 (1~6) <input id="start" type="number" min="1" max="6" step="1" value="6"></label>
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const input = document.getElementById(&quot;start&quot;).value;
+    let i = Number(input);
+    if (input === &quot;&quot; || !Number.isInteger(i) || i &lt; 1 || i &gt; 6) {
+        document.getElementById(&quot;result&quot;).textContent = &quot;1~6 사이의 정수를 입력하세요.&quot;;
+        return;
+    }
+    const lines = [];
+    do {
+        lines.push(String(i));
+        i++;
+    } while (i &lt;= 5);
+    document.getElementById(&quot;result&quot;).textContent = lines.join(&quot; → &quot;) + &quot;\n실행 횟수: &quot; + lines.length + &quot;회&quot;;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a></nav>
+</main><script>
+function runExample() {
+    const input = document.getElementById("start").value;
+    let i = Number(input);
+    if (input === "" || !Number.isInteger(i) || i < 1 || i > 6) {
+        document.getElementById("result").textContent = "1~6 사이의 정수를 입력하세요.";
+        return;
+    }
+    const lines = [];
+    do {
+        lines.push(String(i));
+        i++;
+    } while (i <= 5);
+    document.getElementById("result").textContent = lines.join(" → ") + "\n실행 횟수: " + lines.length + "회";
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

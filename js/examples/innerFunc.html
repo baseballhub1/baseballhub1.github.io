@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>내장 함수 (prompt, confirm, alert)</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>내장 함수 (prompt, confirm, alert)</h1><p>prompt는 입력, confirm은 확인 또는 취소, alert는 알림 창을 표시합니다.</p>
+
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>function runExample() {
+    const name = prompt(&quot;이름을 입력하세요.&quot;);
+    if (name === null) {
+        document.getElementById(&quot;result&quot;).textContent = &quot;입력을 취소했습니다.&quot;;
+        return;
+    }
+    const accepted = confirm(name + &quot;님, 알림을 표시할까요?&quot;);
+    if (accepted) {
+        alert(name + &quot;님, 안녕하세요!&quot;);
+    }
+    document.getElementById(&quot;result&quot;).textContent = accepted ? &quot;확인을 선택했습니다.&quot; : &quot;취소를 선택했습니다.&quot;;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, runExample);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="ifElse.html">다음: if-else 조건문 →</a></nav>
+</main><script>
+function runExample() {
+    const name = prompt("이름을 입력하세요.");
+    if (name === null) {
+        document.getElementById("result").textContent = "입력을 취소했습니다.";
+        return;
+    }
+    const accepted = confirm(name + "님, 알림을 표시할까요?");
+    if (accepted) {
+        alert(name + "님, 안녕하세요!");
+    }
+    document.getElementById("result").textContent = accepted ? "확인을 선택했습니다." : "취소를 선택했습니다.";
+}
+document.getElementById("run").addEventListener("click", runExample);
+</script></body></html>

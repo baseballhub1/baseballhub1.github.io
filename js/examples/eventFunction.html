@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>이벤트 함수</title><link rel="stylesheet" href="examples.css"></head>
+<body><main>
+<h1>이벤트 함수</h1><p>버튼의 click 이벤트에 함수를 연결합니다. 버튼을 누를 때마다 횟수가 증가합니다.</p>
+
+<button id="run" type="button">예제 실행</button>
+<h2>실행 결과</h2><pre id="result" aria-live="polite">버튼을 눌러 실행하세요.</pre>
+<h2>예제 코드</h2><pre><code>let count = 0;
+function handleClick() {
+    count += 1;
+    document.getElementById(&quot;result&quot;).textContent = &quot;클릭 횟수: &quot; + count;
+}
+document.getElementById(&quot;run&quot;).addEventListener(&quot;click&quot;, handleClick);</code></pre>
+<nav><a href="../JsList.html">← 예제 목록</a><a href="function.html">다음: 함수 (Function) →</a></nav>
+</main><script>
+let count = 0;
+function handleClick() {
+    count += 1;
+    document.getElementById("result").textContent = "클릭 횟수: " + count;
+}
+document.getElementById("run").addEventListener("click", handleClick);
+</script></body></html>
