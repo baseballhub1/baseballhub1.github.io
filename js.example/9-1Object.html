@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>예제9-1 객체 | JavaScript 예제</title>
+<style>*{box-sizing:border-box}body{font:16px/1.7 system-ui,'Malgun Gothic',sans-serif;margin:0;background:#f4f7fb;color:#16253a}header{background:#122944;color:white;padding:40px 20px}header>div,main{max-width:900px;margin:auto}h1{margin:0;font-size:30px}header p{color:#d2e1f0}main{padding:22px 16px 64px}section{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid #dce5ee}h2{margin-top:0}pre{background:#102033;color:#c3f4de;overflow:auto;padding:20px;border-radius:9px;white-space:pre}code{font:14px/1.7 Consolas,monospace}#result{background:#ecf6f2;min-height:100px;white-space:pre-wrap;color:#174638;padding:18px;border-radius:9px;font:15px/1.75 Consolas,monospace}button{background:#147a64;color:white;border:0;padding:10px 18px;border-radius:8px;cursor:pointer}a{color:#146f65}</style></head><body><header><div><h1>예제9-1 객체</h1><p>객체 리터럴의 속성과 메서드</p></div></header><main><section><h2>핵심 설명</h2><p>객체 리터럴은 중괄호로 정의합니다. 점 표기법과 대괄호 표기법으로 속성에 접근합니다.</p></section><section><h2>JavaScript 예제 코드</h2><pre><code>const student = {
+  name: '철수',
+  age: 21,
+  major: 'AI소프트웨어',
+  introduce() {
+    return this.name + ' / ' + this.major;
+  }
+};
+console.log(student.name);
+console.log(student['age']);
+console.log(student.introduce());
+student.age = 22;
+console.log(student.age);</code></pre><button id="run" type="button">다시 실행</button></section><section><h2>실행 결과</h2><div id="result" role="status"></div></section><p><a href="index.html">예제 목록으로 돌아가기</a> · <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN JavaScript 참고 문서</a></p></main>
+<script>
+const source="const student = {\n  name: '철수',\n  age: 21,\n  major: 'AI소프트웨어',\n  introduce() {\n    return this.name + ' / ' + this.major;\n  }\n};\nconsole.log(student.name);\nconsole.log(student['age']);\nconsole.log(student.introduce());\nstudent.age = 22;\nconsole.log(student.age);";
+function run(){const out=[];const localConsole={log:(...args)=>out.push(args.map(a=>typeof a==='string'?a:JSON.stringify(a)).join(' '))};try{new Function('console',source)(localConsole);document.getElementById('result').textContent=out.join('\n')||'(출력 없음)'}catch(e){document.getElementById('result').textContent=e.name+': '+e.message}}
+document.getElementById('run').addEventListener('click',run);run();
+</script></body></html>
