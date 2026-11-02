@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript Math 객체 | 통합 예제</title>
+<style>
+:root{font-family:system-ui,"Noto Sans KR",sans-serif;color:#17253b;background:#f5f7fb}*{box-sizing:border-box}body{margin:0}header{background:#10223c;color:white;padding:44px max(24px,calc((100vw - 1080px)/2))}h1{font-size:clamp(28px,4vw,42px);margin:8px 0}header p{color:#c6d7ed}main{max-width:1080px;margin:auto;padding:25px 18px 75px}.eyebrow{color:#64e5bd;font-size:13px;font-weight:700;letter-spacing:.1em}.card{background:white;border:1px solid #dfe6f0;border-radius:15px;padding:24px;margin:20px 0;box-shadow:0 2px 7px #18294408}h2{margin-top:0;font-size:22px}.explain{color:#566478}.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:end}.field{display:grid;gap:6px}.field label{font-weight:700;font-size:14px}input{font:inherit;border:1px solid #b7c5d9;border-radius:7px;padding:10px;width:155px}button{font:inherit;border:0;border-radius:7px;padding:10px 16px;cursor:pointer;color:white;background:#146b59}button:hover{background:#095142}.hint{font-size:13px;color:#5c6d82}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:580px}th,td{padding:12px;border-bottom:1px solid #e5ebf2;text-align:left;vertical-align:top}th{background:#eff4f9}tr:hover td{background:#f9fbfd}code{font-family:Consolas,monospace;font-size:14px;color:#0e6658}td.result{font-family:Consolas,monospace;font-variant-numeric:tabular-nums;font-weight:700;color:#192d50}pre{background:#12233d;color:#b9f5dc;padding:18px;border-radius:9px;overflow:auto;line-height:1.7}pre code{color:#b9f5dc}.pill{display:inline-block;border-radius:30px;background:#dff5ec;color:#11624f;font-size:13px;padding:4px 10px}a{color:#0b695e}@media(max-width:650px){header{padding:30px 20px}.card{padding:16px}.field input{width:125px}}</style>
+</head><body><header><span class="eyebrow">JS EXAMPLES · MATH OBJECT</span><h1>JavaScript Math 객체</h1><p>9-10 · 9-11 · 9-12 예제 통합 | 25가지 Math 메서드</p><span class="pill">입력값을 바꾸면 결과가 갱신됩니다</span></header>
+<main><section class="card"><h2>직접 값 바꿔보기</h2><p class="explain">기존 첫 두 예제는 x=1, y=3을, 세 번째 예제는 x=1.234를 사용합니다. 각 예제의 값을 따로 변경할 수 있습니다.</p><div class="controls"><div class="field"><label for="x1">예제 1·2의 x</label><input id="x1" type="number" step="any" value="1"></div><div class="field"><label for="y">예제 1·2의 y</label><input id="y" type="number" step="any" value="3"></div><div class="field"><label for="x3">예제 3의 x</label><input id="x3" type="number" step="any" value="1.234"></div><button type="button" id="reset">기본값으로 초기화</button></div><p class="hint">acos·asin의 정의역은 -1~1, acosh는 1 이상입니다. 유효하지 않은 입력에는 NaN이 나타날 수 있습니다. Math.random()은 값을 다시 계산할 때마다 달라집니다.</p></section>
+<div id="sections"></div>
+<section class="card"><h2>JavaScript 코드 예시</h2><pre><code>// x와 y 값으로 계산
+const x = 1;
+const y = 3;
+
+console.log(Math.abs(x));       // 절댓값
+console.log(Math.atan2(x, y));  // 두 값으로 각도 계산
+console.log(Math.max(x, 3, 0.3, 12));
+console.log(Math.pow(x, y));
+
+const z = 1.234;
+console.log(Math.round(z));     // 반올림
+console.log(Math.sqrt(z));      // 제곱근
+console.log(Math.trunc(z));     // 소수 부분 제거</code></pre><p class="hint">Math 메서드 대부분은 숫자를 받고 숫자를 반환합니다. 삼각함수는 각도를 라디안으로 다룹니다.</p></section>
+<section class="card"><h2>원본 예제 및 참고 자료</h2><p>원본 3개 파일은 그대로 보존했습니다.</p><ul><li><a href="./9-10MathObj01.html">9-10 MathObj01</a></li><li><a href="./9-11MathObj02.html">9-11 MathObj02</a></li><li><a href="./9-12MathObj03.html">9-12 MathObj03</a></li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math" target="_blank" rel="noopener noreferrer">MDN: JavaScript Math 공식 API 참고 문서</a></li></ul></section></main>
+<script>
+const entries=[["기본·역삼각·반올림","abs","Math.abs(x)","절댓값",1,3],["기본·역삼각·반올림","acos","Math.acos(x)","아크코사인(라디안)",1,3],["기본·역삼각·반올림","acosh","Math.acosh(x)","역쌍곡코사인",1,3],["기본·역삼각·반올림","asin","Math.asin(x)","아크사인(라디안)",1,3],["기본·역삼각·반올림","asinh","Math.asinh(x)","역쌍곡사인",1,3],["기본·역삼각·반올림","atan","Math.atan(x)","아크탄젠트(라디안)",1,3],["기본·역삼각·반올림","atan2","Math.atan2(x, y)","좌표 성분을 바탕으로 각도 계산(라디안)",1,3],["기본·역삼각·반올림","cbrt","Math.cbrt(x)","세제곱근",1,3],["기본·역삼각·반올림","ceil","Math.ceil(x)","올림",1,3],["지수·로그·최댓값","cos","Math.cos(x)","코사인(라디안)",1,3],["지수·로그·최댓값","cosh","Math.cosh(x)","쌍곡코사인",1,3],["지수·로그·최댓값","exp","Math.exp(x)","e의 x제곱",1,3],["지수·로그·최댓값","floor","Math.floor(x)","내림",1,3],["지수·로그·최댓값","log","Math.log(x)","자연로그",1,3],["지수·로그·최댓값","max","Math.max(x, 3, 0.3, 12)","최댓값",1,3],["지수·로그·최댓값","min","Math.min(x, 3, 0.3, 12)","최솟값",1,3],["지수·로그·최댓값","pow","Math.pow(x, y)","x의 y제곱",1,3],["지수·로그·최댓값","random","Math.random()","0 이상 1 미만의 난수",1,3],["삼각·기타","round","Math.round(x)","가장 가까운 정수로 반올림",1.234,3],["삼각·기타","sin","Math.sin(x)","사인(라디안)",1.234,3],["삼각·기타","sinh","Math.sinh(x)","쌍곡사인",1.234,3],["삼각·기타","sqrt","Math.sqrt(x)","제곱근",1.234,3],["삼각·기타","tan","Math.tan(x)","탄젠트(라디안)",1.234,3],["삼각·기타","tanh","Math.tanh(x)","쌍곡탄젠트",1.234,3],["삼각·기타","trunc","Math.trunc(x)","소수점 이하 제거",1.234,3]];
+const sections=document.getElementById("sections");
+const groups=[["기본·역삼각·반올림","예제 9-10: Math 객체 메서드 1"],["지수·로그·최댓값","예제 9-11: Math 객체 메서드 2"],["삼각·기타","예제 9-12: Math 객체 메서드 3"]];
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+for(const [group,title] of groups){
+ const rows=entries.filter(e=>e[0]===group).map(e=>'<tr><td><code>'+escapeHtml(e[2])+'</code></td><td>'+escapeHtml(e[3])+'</td><td class="result" data-method="'+escapeHtml(e[1])+'">-</td></tr>').join('');
+ const section=document.createElement("section");section.className="card";section.innerHTML='<h2>'+title+'</h2><div class="table-wrap"><table><thead><tr><th>실행 코드</th><th>설명</th><th>실행 결과</th></tr></thead><tbody>'+rows+'</tbody></table></div>';sections.appendChild(section);
+}
+const fns={abs:(x,y)=>Math.abs(x),acos:(x,y)=>Math.acos(x),acosh:(x,y)=>Math.acosh(x),asin:(x,y)=>Math.asin(x),asinh:(x,y)=>Math.asinh(x),atan:(x,y)=>Math.atan(x),atan2:(x,y)=>Math.atan2(x,y),cbrt:(x,y)=>Math.cbrt(x),ceil:(x,y)=>Math.ceil(x),cos:(x,y)=>Math.cos(x),cosh:(x,y)=>Math.cosh(x),exp:(x,y)=>Math.exp(x),floor:(x,y)=>Math.floor(x),log:(x,y)=>Math.log(x),max:(x,y)=>Math.max(x,3,0.3,12),min:(x,y)=>Math.min(x,3,0.3,12),pow:(x,y)=>Math.pow(x,y),random:()=>Math.random(),round:(x,y)=>Math.round(x),sin:(x,y)=>Math.sin(x),sinh:(x,y)=>Math.sinh(x),sqrt:(x,y)=>Math.sqrt(x),tan:(x,y)=>Math.tan(x),tanh:(x,y)=>Math.tanh(x),trunc:(x,y)=>Math.trunc(x)};
+function render(){
+const x1=Number(document.getElementById('x1').value),y=Number(document.getElementById('y').value),x3=Number(document.getElementById('x3').value);
+for(const e of entries){const node=document.querySelector('[data-method="'+e[1]+'"]');const x=e[0]==="삼각·기타"?x3:x1;const v=fns[e[1]](x,y);node.textContent=Number.isNaN(v)?"NaN":String(v);}
+}
+for(const id of ["x1","y","x3"])document.getElementById(id).addEventListener("input",render);
+document.getElementById("reset").addEventListener("click",()=>{document.getElementById("x1").value=1;document.getElementById("y").value=3;document.getElementById("x3").value=1.234;render()});
+render();
+</script></body></html>
