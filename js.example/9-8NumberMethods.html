@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>예제9-8 Number 메소드 | JavaScript 예제</title>
+<style>*{box-sizing:border-box}body{font:16px/1.7 system-ui,'Malgun Gothic',sans-serif;margin:0;background:#f4f7fb;color:#16253a}header{background:#122944;color:white;padding:40px 20px}header>div,main{max-width:900px;margin:auto}h1{margin:0;font-size:30px}header p{color:#d2e1f0}main{padding:22px 16px 64px}section{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid #dce5ee}h2{margin-top:0}pre{background:#102033;color:#c3f4de;overflow:auto;padding:20px;border-radius:9px;white-space:pre}code{font:14px/1.7 Consolas,monospace}#result{background:#ecf6f2;min-height:100px;white-space:pre-wrap;color:#174638;padding:18px;border-radius:9px;font:15px/1.75 Consolas,monospace}button{background:#147a64;color:white;border:0;padding:10px 18px;border-radius:8px;cursor:pointer}a{color:#146f65}</style></head><body><header><div><h1>예제9-8 Number 메소드</h1><p>숫자 형식 변환과 판별</p></div></header><main><section><h2>핵심 설명</h2><p>toFixed·toPrecision·toExponential은 문자열을 반환합니다. Number.isNaN은 NaN만 판별합니다.</p></section><section><h2>JavaScript 예제 코드</h2><pre><code>const n = 1234.5678;
+console.log('toFixed(2):', n.toFixed(2));
+console.log('toPrecision(5):', n.toPrecision(5));
+console.log('toExponential(2):', n.toExponential(2));
+console.log('toString(16):', (255).toString(16));
+console.log('Number.isInteger(3):', Number.isInteger(3));
+console.log('Number.isNaN(NaN):', Number.isNaN(NaN));
+console.log('Number.parseInt(12px):', Number.parseInt('12px', 10));
+console.log('Number.parseFloat(3.14kg):', Number.parseFloat('3.14kg'));</code></pre><button id="run" type="button">다시 실행</button></section><section><h2>실행 결과</h2><div id="result" role="status"></div></section><p><a href="index.html">예제 목록으로 돌아가기</a> · <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN JavaScript 참고 문서</a></p></main>
+<script>
+const source="const n = 1234.5678;\nconsole.log('toFixed(2):', n.toFixed(2));\nconsole.log('toPrecision(5):', n.toPrecision(5));\nconsole.log('toExponential(2):', n.toExponential(2));\nconsole.log('toString(16):', (255).toString(16));\nconsole.log('Number.isInteger(3):', Number.isInteger(3));\nconsole.log('Number.isNaN(NaN):', Number.isNaN(NaN));\nconsole.log('Number.parseInt(12px):', Number.parseInt('12px', 10));\nconsole.log('Number.parseFloat(3.14kg):', Number.parseFloat('3.14kg'));";
+function run(){const out=[];const localConsole={log:(...args)=>out.push(args.map(a=>typeof a==='string'?a:JSON.stringify(a)).join(' '))};try{new Function('console',source)(localConsole);document.getElementById('result').textContent=out.join('\n')||'(출력 없음)'}catch(e){document.getElementById('result').textContent=e.name+': '+e.message}}
+document.getElementById('run').addEventListener('click',run);run();
+</script></body></html>
