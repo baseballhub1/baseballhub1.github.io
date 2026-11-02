@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>객체 생성자 | JavaScript 예제</title>
+<style>*{box-sizing:border-box}body{font:16px/1.7 system-ui,'Malgun Gothic',sans-serif;margin:0;background:#f4f7fb;color:#16253a}header{background:#122944;color:white;padding:40px 20px}header>div,main{max-width:900px;margin:auto}h1{margin:0;font-size:30px}header p{color:#d2e1f0}main{padding:22px 16px 64px}section{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid #dce5ee}h2{margin-top:0}pre{background:#102033;color:#c3f4de;overflow:auto;padding:20px;border-radius:9px;white-space:pre}code{font:14px/1.7 Consolas,monospace}#result{background:#ecf6f2;min-height:100px;white-space:pre-wrap;color:#174638;padding:18px;border-radius:9px;font:15px/1.75 Consolas,monospace}button{background:#147a64;color:white;border:0;padding:10px 18px;border-radius:8px;cursor:pointer}a{color:#146f65}</style></head><body><header><div><h1>객체 생성자</h1><p>생성자 함수로 여러 객체 만들기</p></div></header><main><section><h2>핵심 설명</h2><p>new는 생성자 함수를 호출하고 새 객체를 만듭니다. this는 생성된 인스턴스를 가리킵니다.</p></section><section><h2>JavaScript 예제 코드</h2><pre><code>function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.introduce = function () {
+    return this.name + ' (' + this.age + '세)';
+  };
+}
+const person1 = new Person('민수', 20);
+const person2 = new Person('지수', 22);
+console.log(person1.introduce());
+console.log(person2.introduce());</code></pre><button id="run" type="button">다시 실행</button></section><section><h2>실행 결과</h2><div id="result" role="status"></div></section><p><a href="index.html">예제 목록으로 돌아가기</a> · <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN JavaScript 참고 문서</a></p></main>
+<script>
+const source="function Person(name, age) {\n  this.name = name;\n  this.age = age;\n  this.introduce = function () {\n    return this.name + ' (' + this.age + '세)';\n  };\n}\nconst person1 = new Person('민수', 20);\nconst person2 = new Person('지수', 22);\nconsole.log(person1.introduce());\nconsole.log(person2.introduce());";
+function run(){const out=[];const localConsole={log:(...args)=>out.push(args.map(a=>typeof a==='string'?a:JSON.stringify(a)).join(' '))};try{new Function('console',source)(localConsole);document.getElementById('result').textContent=out.join('\n')||'(출력 없음)'}catch(e){document.getElementById('result').textContent=e.name+': '+e.message}}
+document.getElementById('run').addEventListener('click',run);run();
+</script></body></html>
